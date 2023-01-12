@@ -40,13 +40,11 @@ const productsCategory = productsFromServer.map(product => {
 });
 
 const allProducts = productsCategory.map(product => {
-  if (product.category) {
-    return {
-      ...product,
-      user: getUser(product.category?.ownerId),
-      category: getCategory(product.categoryId),
-    };
-  }
+  return {
+    ...product,
+    user: getUser(product.category?.ownerId),
+    category: getCategory(product.categoryId),
+  };
 });
 
 export const App: React.FC = () => {
